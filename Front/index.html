@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body background="pico-de-montanha-majestoso-em-paisagem-tranquila-de-inverno-gerada-por-ia.jpg">
+    <div class="login">
+        <h1>Login</h1>
+        <img id="gif" hidden src="image.gif" alt="">
+        <div class="email">
+            <label for="email"></label>
+            <input type="email" name="email" id="email"placeholder="Email:">
+            <p id="textoEmail" hidden><i>Informe seu email</i></p>
+        </div>
+        <div class="senha">
+            <label for="senha"></label>
+            <input type="password" name="senha" id="senha" placeholder="Senha:">
+            <p id="textoSenha" hidden><i>Informe sua senha:</i></p>
+      </div>
+        <button id="btnLogin" onclick="login()">Entrar</button>
+        <button id="btnCancelar" onclick="cancel()" hidden>Cancelar</button>
+
+    </div>
+
+    <script>
+
+        function login(){
+            
+            let botaoEntrar = document.getElementById("btnLogin");
+            let email = document.getElementById("email").value;
+            let senha = document.getElementById("senha").value;
+            
+            if (email == "") {
+                document.getElementById("textoEmail").hidden = false;
+            } else{
+                document.getElementById("textoEmail").hidden = true;
+            }
+            
+            if (senha == "") {
+                document.getElementById("textoSenha").hidden = false;
+            }else{
+                document.getElementById("textoSenha").hidden = true;
+            }
+
+            if (email != "" && senha != "") {
+                
+                document.getElementById("textoEmail").hidden = true;
+                document.getElementById("textoSenha").hidden = true;
+                document.getElementById("email").hidden = true;
+                document.getElementById("senha").hidden = true;
+                document.getElementById("gif").hidden = false;
+                document.getElementById("btnLogin").hidden = true;
+                document.getElementById("btnCancelar").hidden = false;
+                document.getElementById("textoEmail").hidden = true;
+                setTimeout(() => {
+                    window.location.href = "dashboard.html";
+                }, "1000");
+            }
+
+        }
+        function cancel(){
+            document.getElementById("btnLogin").hidden = false;
+            document.getElementById("btnCancelar").hidden = true;
+            document.getElementById("email").hidden = false;
+            document.getElementById("senha").hidden = false;
+            document.getElementById("gif").hidden = true;
+        }
+    </script>
+</body>
+</html>
+<!-- 
+    getElementByid()
+    getElementByTagName()
+    getElementByClassName()
+    querrySelector()
+    
+ -->
